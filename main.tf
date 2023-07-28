@@ -7,7 +7,8 @@ locals {
 ################################################################################
 
 resource "helm_release" "this" {
-  count = var.create && var.create_release ? 1 : 0
+  count    = var.create && var.create_release ? 1 : 0
+  provider = try(var.provider, null)
 
   name             = try(coalesce(var.name, var.chart), "")
   description      = var.description

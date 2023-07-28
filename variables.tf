@@ -242,6 +242,12 @@ variable "set_irsa_names" {
   default     = []
 }
 
+variable "provider" {
+  description = "A provider to pass to the helm_release in case using multiple providers to create multiple clusters"
+  type        = any
+  default     = {}
+}
+
 ################################################################################
 # IAM Role for Service Account(s) (IRSA)
 ################################################################################
